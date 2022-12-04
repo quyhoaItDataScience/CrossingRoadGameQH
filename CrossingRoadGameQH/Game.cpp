@@ -34,7 +34,6 @@ void Game::gotoOxy(int x, int y)
 
 void Game::clrscr()
 {
-
 		COORD topLeft = { 0, 0 };
 		HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
 		CONSOLE_SCREEN_BUFFER_INFO screen;
@@ -54,7 +53,14 @@ void Game::clrscr()
 
 void Game::startGame()
 {
-		
+	gotoOxy(10, 5); 
+	cout << "Start game"; 
+}
+
+void Game::settingGame()
+{
+	gotoOxy(10, 10); 
+	cout << "Setting game"; 
 }
 
 void Game::drawMenu()
@@ -77,10 +83,23 @@ void Game::drawMenu()
 		// Dang viet Key enter
 		if (c == KEY_ENTER) {
 			if (active == 1) {
-				
+				clrscr(); 
+				Game::gotoOxy(40, 40); 
+				Game::txtColor(DEFAULT_COLOR); 
+				startGame(); 
 			}
+			if (active == 2) {
+				clrscr(); 
+				Game::gotoOxy(40, 40);
+				Game::txtColor(DEFAULT_COLOR);
+				settingGame(); 
+			}
+			if (active == 3) {
+				exit(1); 
+			}
+			break; 
 		}
-		Game::clrscr();
+		clrscr(); 
 		menu(active, 240);
 	}
 

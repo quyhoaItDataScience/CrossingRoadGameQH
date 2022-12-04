@@ -4,13 +4,14 @@
 #include<conio.h>
 #include<string>
 #include<vector>
-using namespace std; 
+using namespace std;
+
+#define DEFAULT_COLOR 10
 
 #define KEY_DOWN 80
 #define KEY_UP 72
 #define KEY_ESC 27
 #define KEY_ENTER 13
-
 
 #define VERTICAL_PALE_PIECE char(186)
 #define DOWN_BLACK_PIECE char(220)
@@ -36,6 +37,7 @@ public:
 	}
 
 	void startGame();
+	void settingGame(); 
 	void drawMenu(); 
 	void menu(int active = 0, int color = 10) {
 		int x = 50, y = 3; 
